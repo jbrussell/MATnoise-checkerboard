@@ -153,7 +153,7 @@ for ixsp = 1:length(xspfiles)
             xspsum(ixsp).isgood(ip) = 1;
         end
 
-        if isempty(cell2mat(strfind(sta.name,xspsum(ixsp).sta1))) || isempty(cell2mat(strfind(sta.name,xspsum(ixsp).sta2)))
+        if isempty(find(strcmp(sta.name,xspsum(ixsp).sta1))) || isempty(find(strcmp(sta.name,xspsum(ixsp).sta2)))
             xspsum(ixsp).isgood(ip) = 0;
         end
     end
