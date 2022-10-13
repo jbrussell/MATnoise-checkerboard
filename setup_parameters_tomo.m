@@ -22,7 +22,8 @@ parameters.gridsize_azi = 0.25; %3; %1.5; % gridsize for 2D azimuthal anisotropy
 parameters.r = 0.05; %0.01; % controls color bar [avgv(1-r) avgv(1+r)]
 
 % Smoothing parameters
-parameters.smweight0 = [2 5 10]; % isotropic second derivative smoothing
+parameters.is_wl_smoothing = 1; % use wavelength dependent smoothing?
+parameters.smweight0 = [2 2 2]; % isotropic second derivative smoothing
 parameters.smweight0_azi = 1e3 * ones(size(parameters.periods)); %1000; % anisotropic second derivative smoothing
 parameters.flweight0_azi = 1000 * ones(size(parameters.periods)); %1000; % anisotropic first derivative flatness
 parameters.damp0_azi = 1000 * ones(size(parameters.periods)); %1000; % anisotropic norm damping
