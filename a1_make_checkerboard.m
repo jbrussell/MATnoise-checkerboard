@@ -1,7 +1,7 @@
 % Make checkerboard phase velocity map
 %
 
-clear;
+clear; close all;
 
 setup_parameters_tomo;
 periods = parameters.periods;
@@ -55,8 +55,7 @@ save([workingdir,'/checker.mat'],'checker');
 
 %% Plot checkerboards
 figure(2); set(gcf,'position',[104         118        1077         876]);
-load seiscmap
-cmap = seiscmap
+cmap = tomo_cmap(100);
 nrow=3; ncol=3;
 for ip = 1:length(periods)
     phv = checker(ip).phv;
