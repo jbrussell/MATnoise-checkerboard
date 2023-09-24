@@ -29,7 +29,7 @@ average_vel = 3.8; % [km/s] For calculating wavelength for determining r_tol_min
 
 % QC parameters
 snr_tol = 0; % minimum signal-to-noise
-is_rtolmin_wavelength = 0; wl_fac = 1.0; % determine distance tolerance by wavelength?
+is_rtolmin_wavelength = 1; wl_fac = 1.0; % determine distance tolerance by wavelength?
 r_tol_min = 0; % [km] minimum station separation
 r_tol_max = 600; % [km] maximum station separation
 err_tol = 999; % maximum misfit of bessel fit between observed and synthetic
@@ -525,10 +525,14 @@ for ip=1:length(Tperiods)
     avgv = nanmean(raytomo(ip).GV(:));
     levels = linspace(avgv*(1-r), avgv*(1+r),100);
     contourfm(xi,yi,raytomo(ip).GV,levels,'LineStyle','none');
-    title([num2str(Tperiods(ip))],'fontsize',15)
+    title([num2str(Tperiods(ip)),' s'],'fontsize',15)
     caxis([avgv*(1-r) avgv*(1+r)])
     cb = colorbar;
-    ylabel(cb,'Phase Velocity');
+    ylabel(cb,'Phase Velocity','fontsize',15);
+    set(cb,'linewidth',1.5,'fontsize',15);
+    set(gca,'fontsize',15);
+    hold on;
+%     plotm(stlat,stlon,'ok','markerfacecolor',[0 0 0],'MarkerEdgeColor',[1 1 1]);
 end
 
 %%
