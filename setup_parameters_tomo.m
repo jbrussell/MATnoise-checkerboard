@@ -23,7 +23,7 @@ parameters.r = 0.05; %0.01; % controls color bar [avgv(1-r) avgv(1+r)]
 
 % Smoothing parameters
 parameters.is_wl_smoothing = 1; % use wavelength dependent smoothing?
-parameters.smweight0 = [2 2 2]; % isotropic second derivative smoothing
+parameters.smweight0 = 2 * ones(size(parameters.periods)); % isotropic second derivative smoothing
 parameters.smweight0_azi = 1e3 * ones(size(parameters.periods)); %1000; % anisotropic second derivative smoothing
 parameters.flweight0_azi = 1000 * ones(size(parameters.periods)); %1000; % anisotropic first derivative flatness
 parameters.damp0_azi = 1000 * ones(size(parameters.periods)); %1000; % anisotropic norm damping
