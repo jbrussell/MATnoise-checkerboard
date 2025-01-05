@@ -441,6 +441,7 @@ for ip=1:length(Tperiods)
 %     raytomo(ip).phi4 = phi4;
     raytomo(ip).phv = phv;
     raytomo(ip).azi = azi;
+    raytomo(ip).dist = dist;
     
     
     if 0
@@ -723,7 +724,8 @@ set(gcf,'position',[10          11        1203         695]);
 for iper = 1:length(periods)
     azi = raytomo(iper).azi;
     azi(azi<0) = azi(azi<0) + 360;
-     dphv = (raytomo(iper).phv' - raytomo(iper).phv_iso) ./ raytomo(iper).phv_iso;
+    dphv = (raytomo(iper).phv' - raytomo(iper).phv_iso) ./ raytomo(iper).phv_iso;
+    dist = raytomo(iper).dist;
     subplot(3,4,iper); hold on;
     x = [0:360];
     % PHV FIT = a*(1+d*cosd(c*(x-e)))
