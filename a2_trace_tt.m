@@ -61,9 +61,14 @@ for ista1 = 1:length(stalist)
         xspinfo.lon2 = lon2;
         xspinfo.r = r;
         xspinfo.tw = dtp;
+        xspinfo.c = r ./ dtp;
+        xspinfo.c_std = xspinfo.c*0.01;
         xspinfo.coherenum = 1;
         xspinfo.sumerr = 0;
         xspinfo.snr = 999;
+        xspinfo.per = periods;
+        xspinfo.per_start = periods;
+        xspinfo.isgood_wl = ones(size(periods));
         
         twloc = 1./periods*2*pi;
 
